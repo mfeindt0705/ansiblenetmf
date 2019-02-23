@@ -1,0 +1,13 @@
+---
+
+pets:
+  - cat
+  - dog
+  - rabbit
+dog: rottweiler
+cats:
+  - tiger
+  - panther
+  - lion
+
+

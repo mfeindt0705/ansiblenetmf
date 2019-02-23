@@ -1,0 +1,31 @@
+---
+- name: Print out variables
+  hosts: cisco
+  vars:
+    ntp_server_1: 20.20.20.20
+    ntp_server_2: 20.20.20.30
+  tasks:
+    - name: Print Inventory Name
+      debug:
+        msg: "{{ inventory_hostname }}"
+
+    - name: Print Ansible_host variable
+      debug:
+        msg: "{{ ansible_host }}"
+
+    - name: Print local_as_number variable
+      debug:
+        msg: "{{ local_as_number }}"
+
+    - name: Print remote_as_number variable
+      debug:
+        msg: "{{ remote_as_number }}"
+
+    - name: Print ntp_server_1
+      debug:
+        msg: "{{ ntp_server_1 }}"
+
+    - name: Print ntp_server_2 
+      debug:
+        msg: "{{ ntp_server_2 }}"
+
