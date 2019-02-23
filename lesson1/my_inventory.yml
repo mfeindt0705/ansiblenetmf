@@ -1,0 +1,8 @@
+---
+- name: Verify my inventory 
+  hosts: local
+  tasks:
+    - ping:
+
+
+
