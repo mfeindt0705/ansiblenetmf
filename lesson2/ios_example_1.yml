@@ -1,0 +1,12 @@
+---
+- name: Simple IOS example
+  hosts: pynet-rtr1
+  vars:
+    creds:
+      host: 184.105.247.70
+      username: newusername
+      password: newpassword
+  tasks:
+    - ios_facts:
+        provider: "{{ creds }}"
+      

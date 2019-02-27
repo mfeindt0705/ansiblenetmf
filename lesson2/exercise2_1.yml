@@ -1,0 +1,51 @@
+---
+
+- name: ios facts multiple tasks
+  hosts: cisco
+  vars:
+    creds:
+      host: "{{ ansible_host }}"
+      username: "{{ ansible_user }}"
+      password: "{{ ansible_ssh_pass }}"
+      
+  tasks: 
+    - ios_facts:
+        provider: "{{ creds }}"
+      tags:
+        - task1
+        - task2
+        - task3
+        - task4
+
+    - name: task 1
+      tags: task1
+      debug:
+        var: ansible_net_all_ipv4_addresses
+      when: ansible_net_all_ipv4_addresses[0] == '10.220.88.21'
+        
+    - name: task 2
+      tags: task2
+      debug:
+        msg: "{{ item.key }}"
+      with_dict: "{{ ansible_net_interfaces }}"
+    
+    - name: task 3
+      tags: task3
+      debug:
+        msg: "{{ item.key }}"
+      with_dict: "{{ ansible_net_interfaces }}"
+      when: item.value['operstatus'] == "up"
+
+    - name: task 4
+      tags: task4
+      debug:
+        var: ansible_net_model
+      when: ansible_net_model == "881"
+
+
+
+
+# a. ansible_net_all_ipv4_addresses         [when the IP address is 10.220.88.21]
+# b. ansible_net_interfaces                 [only print out the interface names]   
+# c. ansible_net_interfaces                 [only print out the interface names that are up]
+# d. ansible_net_model                      [only when the model is a 881]

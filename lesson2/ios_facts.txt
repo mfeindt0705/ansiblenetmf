@@ -1,0 +1,188 @@
+ansible-playbook 2.7.6
+  config file = /home/mfeindt/.ansible.cfg
+  configured module search path = ['/home/mfeindt/napalm-ansible/napalm_ansible/modules', '/home/mfeindt/ansible-extras/ntc-ansible/library']
+  ansible python module location = /home/mfeindt/VENV/py3_venv/local/lib/python3.6/site-packages/ansible
+  executable location = /home/mfeindt/VENV/py3_venv/bin/ansible-playbook
+  python version = 3.6.7 (default, Dec 21 2018, 20:31:01) [GCC 4.8.5 20150623 (Red Hat 4.8.5-28)]
+Using /home/mfeindt/.ansible.cfg as config file
+/home/mfeindt/ansible-hosts did not meet host_list requirements, check plugin documentation if this is unexpected
+/home/mfeindt/ansible-hosts did not meet script requirements, check plugin documentation if this is unexpected
+Parsed /home/mfeindt/ansible-hosts inventory source with ini plugin
+
+PLAYBOOK: ios_example_1.yml *************************************************************************************
+1 plays in ios_example_1.yml
+
+PLAY [Simple IOS example] ***************************************************************************************
+
+TASK [Gathering Facts] ******************************************************************************************
+task path: /home/mfeindt/ansiblenetmf/lesson2/ios_example_1.yml:2
+<cisco1.lasthop.io> ESTABLISH LOCAL CONNECTION FOR USER: mfeindt
+<cisco1.lasthop.io> EXEC /bin/sh -c 'echo ~mfeindt && sleep 0'
+<cisco1.lasthop.io> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/mfeindt/.ansible/tmp/ansible-tmp-1551005091.0552654-111306049931945 `" && echo ansible-tmp-1551005091.0552654-111306049931945="` echo /home/mfeindt/.ansible/tmp/ansible-tmp-1551005091.0552654-111306049931945 `" ) && sleep 0'
+Using module file /home/mfeindt/VENV/py3_venv/local/lib/python3.6/site-packages/ansible/modules/system/setup.py
+<cisco1.lasthop.io> PUT /home/mfeindt/.ansible/tmp/ansible-local-24883e1xquitq/tmpee8h_tbf TO /home/mfeindt/.ansible/tmp/ansible-tmp-1551005091.0552654-111306049931945/AnsiballZ_setup.py
+<cisco1.lasthop.io> EXEC /bin/sh -c 'chmod u+x /home/mfeindt/.ansible/tmp/ansible-tmp-1551005091.0552654-111306049931945/ /home/mfeindt/.ansible/tmp/ansible-tmp-1551005091.0552654-111306049931945/AnsiballZ_setup.py && sleep 0'
+<cisco1.lasthop.io> EXEC /bin/sh -c '/home/mfeindt/VENV/ansible/bin/python /home/mfeindt/.ansible/tmp/ansible-tmp-1551005091.0552654-111306049931945/AnsiballZ_setup.py && sleep 0'
+<cisco1.lasthop.io> EXEC /bin/sh -c 'rm -f -r /home/mfeindt/.ansible/tmp/ansible-tmp-1551005091.0552654-111306049931945/ > /dev/null 2>&1 && sleep 0'
+ok: [pynet-rtr1]
+META: ran handlers
+
+TASK [ios_facts] ************************************************************************************************
+task path: /home/mfeindt/ansiblenetmf/lesson2/ios_example_1.yml:10
+<184.105.247.70> using connection plugin network_cli (was local)
+<cisco1.lasthop.io> ESTABLISH LOCAL CONNECTION FOR USER: mfeindt
+<cisco1.lasthop.io> EXEC /bin/sh -c 'echo ~mfeindt && sleep 0'
+<cisco1.lasthop.io> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/mfeindt/.ansible/tmp/ansible-tmp-1551005093.5318072-279854618943266 `" && echo ansible-tmp-1551005093.5318072-279854618943266="` echo /home/mfeindt/.ansible/tmp/ansible-tmp-1551005093.5318072-279854618943266 `" ) && sleep 0'
+Using module file /home/mfeindt/VENV/py3_venv/local/lib/python3.6/site-packages/ansible/modules/network/ios/ios_facts.py
+<cisco1.lasthop.io> PUT /home/mfeindt/.ansible/tmp/ansible-local-24883e1xquitq/tmpky1dy7rz TO /home/mfeindt/.ansible/tmp/ansible-tmp-1551005093.5318072-279854618943266/AnsiballZ_ios_facts.py
+<cisco1.lasthop.io> EXEC /bin/sh -c 'chmod u+x /home/mfeindt/.ansible/tmp/ansible-tmp-1551005093.5318072-279854618943266/ /home/mfeindt/.ansible/tmp/ansible-tmp-1551005093.5318072-279854618943266/AnsiballZ_ios_facts.py && sleep 0'
+<cisco1.lasthop.io> EXEC /bin/sh -c '/home/mfeindt/VENV/ansible/bin/python /home/mfeindt/.ansible/tmp/ansible-tmp-1551005093.5318072-279854618943266/AnsiballZ_ios_facts.py && sleep 0'
+<cisco1.lasthop.io> EXEC /bin/sh -c 'rm -f -r /home/mfeindt/.ansible/tmp/ansible-tmp-1551005093.5318072-279854618943266/ > /dev/null 2>&1 && sleep 0'
+ok: [pynet-rtr1] => {
+    "ansible_facts": {
+        "ansible_net_all_ipv4_addresses": [
+            "10.220.88.20"
+        ],
+        "ansible_net_all_ipv6_addresses": [],
+        "ansible_net_filesystems": [
+            "flash:"
+        ],
+        "ansible_net_filesystems_info": {
+            "flash:": {
+                "spacefree_kb": 74228.0,
+                "spacetotal_kb": 125824.0
+            }
+        },
+        "ansible_net_gather_subset": [
+            "interfaces",
+            "default",
+            "hardware"
+        ],
+        "ansible_net_hostname": "cisco1",
+        "ansible_net_image": "flash:c880data-universalk9-mz.155-3.M8.bin",
+        "ansible_net_interfaces": {
+            "FastEthernet0": {
+                "bandwidth": 100000,
+                "description": null,
+                "duplex": null,
+                "ipv4": [],
+                "lineprotocol": "down ",
+                "macaddress": "c89c.1dea.0eb2",
+                "mediatype": null,
+                "mtu": 1500,
+                "operstatus": "down",
+                "type": "Fast Ethernet"
+            },
+            "FastEthernet1": {
+                "bandwidth": 100000,
+                "description": null,
+                "duplex": null,
+                "ipv4": [],
+                "lineprotocol": "down ",
+                "macaddress": "c89c.1dea.0eb3",
+                "mediatype": null,
+                "mtu": 1500,
+                "operstatus": "down",
+                "type": "Fast Ethernet"
+            },
+            "FastEthernet2": {
+                "bandwidth": 100000,
+                "description": null,
+                "duplex": null,
+                "ipv4": [],
+                "lineprotocol": "down ",
+                "macaddress": "c89c.1dea.0eb4",
+                "mediatype": null,
+                "mtu": 1500,
+                "operstatus": "down",
+                "type": "Fast Ethernet"
+            },
+            "FastEthernet3": {
+                "bandwidth": 100000,
+                "description": null,
+                "duplex": null,
+                "ipv4": [],
+                "lineprotocol": "down ",
+                "macaddress": "c89c.1dea.0eb5",
+                "mediatype": null,
+                "mtu": 1500,
+                "operstatus": "down",
+                "type": "Fast Ethernet"
+            },
+            "FastEthernet4": {
+                "bandwidth": 100000,
+                "description": "*** LAN connection (don't change) ***",
+                "duplex": null,
+                "ipv4": [
+                    {
+                        "address": "10.220.88.20",
+                        "subnet": "24"
+                    }
+                ],
+                "lineprotocol": "up ",
+                "macaddress": "c89c.1dea.0eb6",
+                "mediatype": null,
+                "mtu": 1500,
+                "operstatus": "up",
+                "type": "PQII_PRO_UEC"
+            },
+            "Vlan1": {
+                "bandwidth": 100000,
+                "description": null,
+                "duplex": null,
+                "ipv4": [],
+                "lineprotocol": "down ",
+                "macaddress": "c89c.1dea.0eb2",
+                "mediatype": null,
+                "mtu": 1500,
+                "operstatus": "down",
+                "type": "EtherSVI"
+            }
+        },
+        "ansible_net_memfree_mb": 55980.50390625,
+        "ansible_net_memtotal_mb": 85602.25,
+        "ansible_net_model": "881",
+        "ansible_net_neighbors": {
+            "Fa4": [
+                {
+                    "host": "twb-sf-hpsw1",
+                    "port": "15"
+                }
+            ]
+        },
+        "ansible_net_serialnum": "FTX1512038X",
+        "ansible_net_version": "15.5(3)M8"
+    },
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "auth_pass": null,
+            "authorize": null,
+            "gather_subset": [
+                "!config"
+            ],
+            "host": null,
+            "password": null,
+            "port": null,
+            "provider": {
+                "auth_pass": null,
+                "authorize": null,
+                "host": "184.105.247.70",
+                "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                "port": null,
+                "ssh_keyfile": null,
+                "timeout": null,
+                "username": "pyclass"
+            },
+            "ssh_keyfile": null,
+            "timeout": null,
+            "username": null
+        }
+    }
+}
+META: ran handlers
+META: ran handlers
+
+PLAY RECAP ******************************************************************************************************
+pynet-rtr1                 : ok=2    changed=0    unreachable=0    failed=0   
+
