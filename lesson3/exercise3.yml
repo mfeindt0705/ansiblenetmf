@@ -1,0 +1,12 @@
+---
+- name: NXOS exercise 3.3
+  hosts: nxos
+  tasks:
+    - name: ping peer switch
+      nxos_ping:
+        provider: "{{ provider_nxapi }}"
+        dest: "{{ item.ipv4_remote }}"
+        count: 3
+        vrf: default
+      with_items: "{{ ip_addresses }}"
+
