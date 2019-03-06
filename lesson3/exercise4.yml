@@ -1,0 +1,25 @@
+---
+- name: NXOS exercise 3.4
+  hosts: nxos
+  tasks:
+    - name: snmp contact
+      nxos_snmp_contact:
+        provider: "{{ provider_nxapi }}"
+        contact: AnsibleAdmin
+      notify: write mem
+      
+    - name: snmp location
+      nxos_snmp_location:
+        provider: "{{ provider_nxapi }}"
+        location: AnsibleLab
+      notify: write mem
+      
+  handlers:
+    - name: write mem
+      nxos_command:
+        provider: "{{ provider_ssh }}"
+        commands: copy running startup
+      changed_when: True
+      tags: wr_mem
+
+

@@ -1,0 +1,28 @@
+---
+- name: NXOS Example
+  hosts: nxos
+  vars:
+    ssh:
+      host: "{{ ansible_host }}"
+      username: "{{ ansible_user }}"
+      password: "{{ ansible_ssh_pass }}"
+      transport: cli
+
+    nxapi:
+      host: "{{ ansible_host }}"
+      username: "{{ ansible_user }}"
+      password: "{{ ansible_ssh_pass }}"
+      transport: nxapi
+      use_ssl: yes
+      validate_certs: no
+      port: 8443
+
+  tasks:
+    - name: facs with cli and ssh
+      nxos_facts:
+        provider: "{{ ssh }}"
+
+    - name: facts with nxpi
+      nxos_facts:
+        provider: "{{ nxapi }}"
+

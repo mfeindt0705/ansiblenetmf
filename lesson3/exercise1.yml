@@ -1,0 +1,21 @@
+---
+- name: NXOS exercise 3.1
+  hosts: nxos
+  tasks:
+    - name: add new vlans
+      nxos_vlan:
+        provider: "{{ provider_nxapi }}"
+        vlan_id: "{{ item.vlan_id }}"
+        name: "{{ item.name }}"
+        admin_state: "{{ item.admin_state }}"
+      with_items: "{{ vlans }}"
+      notify: write mem
+
+  handlers:    
+    - name: write mem
+      nxos_command:
+        provider: "{{ provider_ssh }}"
+        commands: copy running startup
+      changed_when: True
+      tags: wr_mem
+
