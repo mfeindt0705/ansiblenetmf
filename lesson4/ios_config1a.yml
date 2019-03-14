@@ -1,0 +1,22 @@
+---
+- name: IOS Example 1a
+  hosts: pynet-rtr1
+  vars:
+    creds:
+      host: "{{ ansible_host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+
+  tasks:
+    - name: ios facts
+      ios_facts:
+        provider: "{{ creds }}"
+      tags: facts_only
+ 
+    - name: ios config
+      ios_config:
+        provider: "{{ creds }}"
+        lines:
+          - ip name-server 8.8.8.8
+          - ip name-server 8.8.4.4
+
