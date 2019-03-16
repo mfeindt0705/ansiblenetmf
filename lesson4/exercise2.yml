@@ -1,0 +1,17 @@
+---
+- name: exercise 2 arista
+  hosts: arista
+  gather_facts: true
+  tasks:
+    - name: set vlans
+      eos_config:
+        provider: "{{ creds_eapi }}"
+        parents: "vlan {{ item.number }}"
+        lines: 
+          - "name {{ item.name }}"
+      with_items:
+        - { number: '301', name: 'dev01'}
+        - { number: '302', name: 'dev02'}
+        - { number: '303', name: 'dev03'}
+        - { number: '304', name: 'dev04'}
+
