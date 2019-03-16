@@ -1,0 +1,30 @@
+---
+- name: exercise 3 ios
+  hosts: pynet-rtr1
+  gather_facts: true
+  vars:
+    loopb_id: 51
+  tasks:
+    - name: set loopback ip
+      ios_config:
+        provider: "{{ creds_ssh }}"
+        parents: "interface loopback {{ loopb_id }}"
+        lines:
+          - "ip address {{ ipv4_addr}} {{ ipv4_mask }}"
+          - "ipv6 address {{ ipv6_addr}}{{ ipv6_mask }}"
+
+
+- name: exercise 3 nx-os
+  hosts: nxos1
+  gather_facts: true
+  vars:
+    loopb_id: 52
+  tasks:
+    - name: set loopback ip
+      nxos_config:
+        provider: "{{ provider_nxapi }}"
+        parents: "interface loopback {{ loopb_id }}"
+        lines:
+          - "ip address {{ ipv4_addr}} {{ ipv4_mask }}"
+          - "ipv6 address {{ ipv6_addr}}{{ ipv6_mask }}"
+

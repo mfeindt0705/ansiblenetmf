@@ -1,0 +1,16 @@
+---
+- name: exercise 1 Arista
+  hosts: pynet-sw5
+  gather_facts: true
+  vars:
+    gateway: 10.220.88.1
+  tasks:
+    - name: Set routes
+      eos_config:
+        provider: "{{ creds_eapi }}"
+        lines:
+          - "ip route 1.1.11.33/32 {{ gateway }}"
+          - "ip route 1.1.12.33/32 {{ gateway }}"
+          - "ip route 1.1.13.33/32 {{ gateway }}"
+          - "ip route 1.1.14.33/32 {{ gateway }}"
+
