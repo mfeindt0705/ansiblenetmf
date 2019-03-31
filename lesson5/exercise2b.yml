@@ -1,0 +1,31 @@
+---
+- name: Napalm exercise 2b
+  hosts: nxos1
+  gather_facts: true
+  tasks:
+    - debug:
+        msg: "{{ inventory_hostname }}"
+
+    - debug:
+        msg: "{{ ansible_host }}"
+
+    - debug:
+        msg: "{{ ansible_hostname }}"
+
+    - name: get IP address
+      napalm_get_facts:
+        provider: "{{ creds_napalm }}"
+        filter: "interfaces_ip"
+
+    - name: set IP addr 
+      set_fact:
+         IP_addr: "{{ ansible_facts['napalm_interfaces_ip'] }}"
+
+    - debug:
+        var: IP_addr
+
+        
+
+
+
+
