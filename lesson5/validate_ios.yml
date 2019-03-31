@@ -1,0 +1,12 @@
+---
+- get_facts:
+    model: "881"
+    os_version: "C880 Software (C880DATA-UNIVERSALK9-M), Version 15.5(3)M8, RELEASE SOFTWARE (fc1)"
+    vendor: Cisco
+    serial_number: FTX1512038X
+    hostname: cisco1
+
+- get_arp_table:
+    list:
+        - ip: 10.220.88.1
+

@@ -1,0 +1,3 @@
+logging buffered 64500
+logging history size 200
+

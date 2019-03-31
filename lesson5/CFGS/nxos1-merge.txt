@@ -1,0 +1,5 @@
+interface Ethernet 2/2
+description nxos2
+ip address 10.77.88.1/24
+no shutdown
+

@@ -1,0 +1,13 @@
+---
+- name: NAPALM exercise 2
+  hosts: nxos1:nxos2
+  tasks:
+    - name: set IP address
+      napalm_install_config:
+        provider: "{{ creds_napalm }}"
+        config_file: "CFGS/{{ inventory_hostname }}-merge.txt"
+        commit_changes: True
+        replace_config: False
+        diff_file: "DIFFS/{{ inventory_hostname }}.txt"
+
+

@@ -1,0 +1,10 @@
+---
+- name: NAPALM PING
+  hosts: cisco
+  tasks:
+    - name: NAPALM ping
+      napalm_ping:
+        provider: "{{ creds_ssh }}"
+        dev_os: "ios"
+        destination: 8.8.8.8
+

@@ -1,0 +1,10 @@
+---
+- name: napalm exercise 1
+  hosts: cisco
+  gather_facts: true
+  tasks:
+    - name: LLDP
+      napalm_get_facts:
+        provider: "{{ creds_napalm }}"
+        filter: "lldp_neighbors"
+
